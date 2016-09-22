@@ -1,0 +1,14 @@
+bg{
+    background-clip: yellow;
+}
+
+.fButton{
+    height: 40px;
+    width: 120px;
+    background-color: beige;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px #888888;
+    text-align: center;
+}

@@ -1,0 +1,85 @@
+.tbl{
+    width: 100%;
+}
+.tbl2{
+    width: 500px;
+}
+.row{
+    width: 100%;
+}
+.rowB{
+    width: 500px;
+}
+.data{
+    width: 20%;
+    border-top:1px solid gray;
+    border-bottom:1px solid gray;
+    text-align: center;
+    padding: 10px 0px;
+}
+.dataHeader{
+    width: 20%;
+    border-top:1px solid gray;
+    border-bottom:1px solid gray;
+    text-align: center;
+    padding: 10px 0px;
+    font-weight: bold;
+}
+.statsH{
+    border-top:1px solid gray;
+    border-bottom:1px solid gray;
+}    
+    
+.dataBig{
+    text-align: center;
+    font-size: x-large
+}
+
+.dataSmall{
+    text-align: center;
+    font-size: xx-small;
+    color: gray;
+}
+
+.divBar{
+    width:500px;
+}
+
+.bar{
+    background-color:lightblue;
+}
+
+.lightBoxBG{
+    height:500px;
+    width:800px;
+    background-color:gray;
+    border-radius: 5px;
+    position:relative;
+}
+
+.lightBoxFG{
+    height:300px;
+    width:500px;
+    padding:10px;
+    background-color:white;
+    top:18%;
+    left:15%;
+    position: relative;
+
+}
+.floatL{
+    float:left;
+    display:inline-block;
+    padding-right:10px;
+    padding-bottom:50px;
+
+}
+
+.pinkButton {
+    padding: 5px 15px;
+    background-color: fuchsia;
+    color: white;
+    border-radius: 5px;
+    float: right;
+    text-decoration: none;
+}
