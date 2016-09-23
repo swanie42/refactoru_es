@@ -15,7 +15,8 @@ tripleFive();
     - lastLetter('hello') should return 'o'
     - lastLetter('island') should return 'd'
 */
-function lastLetter(name){
-    return lastLetter.charAt(-1)
+var lastLetter = function (name) {
+    return name.charAt(name.length -1);
 }
-lastLetter();
+    
+console.log(lastLetter("jeffrey"));    
