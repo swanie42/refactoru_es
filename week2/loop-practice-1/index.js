@@ -6,16 +6,17 @@ for(var i = 0; i < 600; i=i+100){
 }
 
 
-
 // - 1 2 4 8 16 32 64
 
 for (var i = 1; i < 65; i=i*2){
     console.log(i);
 }
 // // - 1 1 1 2 2 2 3 3 3
-var numbers=[1,1,1,2,2,2,3,3,3];
-for (var i = 0; i<numbers.length; i++){
-    console.log(numbers[i]);
+
+for (var i = 1; i<=3; i++){
+    for(var j = 0; j< 3; j++) {
+  console.log(i);
+}
 }
 
 // - 0 2 4 6 8 10
@@ -31,7 +32,8 @@ for (var i = 9; i >= 0; i=i-1){
     console.log(i);
 }
 // - 0 1 2 3 0 1 2 3 0 1 2 3
-var numbers2=[0,1,2,3,0,1,2,3,0,1,2,3];
-for (var i = 0; i<numbers2.length; i++){
-    console.log(numbers[i]);
+for (var i = 0; i<3; i++){
+    for(var j = 0; j<=3; j++) {
+  console.log(j);
+}
 }
