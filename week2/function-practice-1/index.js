@@ -134,3 +134,4 @@ var getSeconds = function (time) {
 }
 
 console.log(getSeconds("03:30"));
+

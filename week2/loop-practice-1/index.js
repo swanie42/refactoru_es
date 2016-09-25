@@ -37,3 +37,10 @@ for (var i = 0; i<3; i++){
   console.log(j);
 }
 }
+
+var coinFace = function(Math.floor(Math.random() * 2));
+
+for(var i = 0; i<51; i++){
+    console.log(coinFace(i))
+}
+    
