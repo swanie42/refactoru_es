@@ -15,11 +15,12 @@ tripleFive();
 //     - lastLetter('hello') should return 'o'
 //     - lastLetter('island') should return 'd'
 var lastLetter = function (name) {
-    
-    return name.charAt(name.length -1);
+    var letter = name.charAt(name.length -1);
+    console.log(letter);
+    return(letter);
 }
     
-console.log(lastLetter("jeffrey"));    
+lastLetter("jeffrey");    
 
 
 // - Write a function called 'square' which takes a single argument which is a number, and returns number * number.
