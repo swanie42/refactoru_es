@@ -1,0 +1,13 @@
+.jumbotron img {
+  height: 50%;
+  width: 50%;
+  background-size: cover;
+}
+.glyphicon .glyphicon-flag{
+    position: absolute;
+    width:100px;
+    height:100px;
+}
+.jumbotron {
+    position: relative;
+}
