@@ -24,4 +24,4 @@ for(var i=0; i < vNumber; i++){
 };
 
 
-console.log(people);
+document.write(people);

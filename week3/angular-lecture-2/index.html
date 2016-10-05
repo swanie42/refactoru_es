@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<html ng-app="Superheroes">
+    <head>
+        <title>
+            Apply directives
+        </title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+        <script type="text/javascript" src="main.js"></script>
+    </head>
+    <body ng-controller="TheAvengers">
+        <h1>Here it is</h1>
+        <p>{{ title }}</p>
+        
+        <ol>
+            <li ng-repeat="hero in heroes">
+                {{ hero }}
+            </li>
+        </ol>
+    </body>
+</html>
