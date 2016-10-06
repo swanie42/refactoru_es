@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html ng-app="mapApp">
+
+<head>
+    <title>Gold Rush Test</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css">
+    <link rel="stylesheet" href="main.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+    <script src="app.module.js"></script>
+    <script src="app.controller.js"></script>
+
+</head>
+
+<body ng-controller="mainCtrl as marker">
+    
+<!-----------------HEADER--------------------------->
+    <div class="header">
+      <div class="container">
+        <ul class="nav">
+          <li class="nav li">About</li>
+          <li class="nav li">Work</li>
+          <li class="nav li">Team</li>
+          <li class="nav li">Contact</li>
+        </ul>
+      </div>
+    </div>
+    
+<!--------------MAP-BACKGROUND----------------------->  
+    <div class="jumbotron">
+      <div class="container">  
+        <div class="mapMarker"></div>
+        <markers>
+        <marker ng-repeat="marker in markers" coords="marker" icon="marker.icon"></marker>
+        </markers>
+      </div>
+    </div>
+    
+<!--------------------------------------------------->
+    <div class="container-fluid" class="jumbotron">
+        <div class="row">
+            <div "col-xs-12 col-sm-6">
+            </div>
+        </div>
+    </div>
+
+<!--------------------------------------------------->
+
+</body>
+
+</html>
+
+
+        <!--<div class="main">-->
+        <!--  <h1> {{marker.greeting}} </h1>-->
+        <!--  <a href="#" class="btn-main">Get Started<a>-->
+        <!--</div>-->
