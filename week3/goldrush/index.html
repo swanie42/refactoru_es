@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Gold-Rush</title>
+    <script src='//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js'></script>
+    <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+    <script src='//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
+    <script src='goldrush.js'></script>
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css" />
+    <link rel="stylesheet" href="gold.css">
+</head>
+
+<body ng-app='goldRush'>
+    <section ng-controller='goldCtrl as gold'>
+        <div id="markers">
+            <p class="marker" ng-repeat="marker in gold.markers" ng-style="marker" ng-click="gold.removeMarker($event, $index)">
+            </p>
+        </div>
+        <div id="map" ng-click="gold.addMarker($event)">
+            <img width="100%" src="topo-co.jpg" />
+        </div>
+    </section>
+</body>
+
+</html>

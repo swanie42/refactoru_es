@@ -1,0 +1,16 @@
+.marker {
+    width: 30px;
+    height: 30px;
+    background-color: rgba(255,215,0, 0.5);
+    position: absolute;
+    border-radius: 10%;
+    border: 5px solid black;
+}
+
+#markers {
+    position: relative;
+}
+
+#map {
+    width: 1600px;
+}
