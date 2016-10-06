@@ -1,17 +1,46 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="Watapp">
     <head>
-        <title>Angular Lecure 4</title>
-        <script type="text/javascript" src=""></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap-theme.css" type="text/css" />
-        <link rel="stylesheet" href="main.css" type="text/css" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
-        <script src="app.module.js"></script>
-        <script src="app.controller.js"></script>
+        <title>Map</title>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+        <script type="text/javascript" src="main.js"></script>
     </head>
     <body>
-        
+        <h1>Welcome to our map!</h1>
+
+   <section ng-controller="restaurantCtrl as rest">
+            <h2>Restaurants:</h2>
+            <input placeholder="Search names..." ng-model="rest.restFilter">
+
+            <ul>
+                <li ng-repeat="resta in rest.restaurants | filter:rest.restFilter">
+                    {{resta.name}}:
+                    {{resta.style}} - 
+                    <!--{{rest.getNearestLot($index)}}-->
+                    <ul>
+                        <li ng-repeat="item in resta.menu">
+                            {{item}}
+                        </li>    
+                    </ul>    
+                </li>
+            </ul>
+        </section>
+
+
+
+        <section ng-controller="parkingCtrl as park">
+            <h2>Lots:</h2>
+            <ul>
+                <li ng-repeat="lot in park.lots | orderBy: 'capacity' | filter:park.filterLots">
+                    Capacity: {{lot.capacity}}</br>
+                    Cost: {{lot.cost | currency:'$'}}</br>
+                    Location: {{lot.location}}
+                </li>
+            </ul>
+        </section>
+
+        <hr>
+
+     
     </body>
 </html>

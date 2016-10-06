@@ -1,10 +1,13 @@
-angular.module("Superheroes", [])
-    .controller("TheAvengers", ['$scope',avengersController]);
+angular.module('SuperHeros', [])
+    .controller('TheAvengers', avengersController)
 
-function avengersController($scope){
-  $scope.title = "Every team needs a captain";
-  $scope.heroes = ['Captain America',
-                    'Ironman',
-                    'Captain Obvious',
-                    'Thor'];
+function avengersController() {
+    var aCtrl = this;
+    aCtrl.title = "Every team needs a captain!"
+    aCtrl.newAvenger = ''
+    aCtrl.heroes = ['Captain America', 'Iron Man', 'Thor']
+
+    aCtrl.addNewHero = function() {
+        aCtrl.heroes.push(aCtrl.newAvenger)
+    }
 }
