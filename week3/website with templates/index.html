@@ -1,46 +1,34 @@
 <!DOCTYPE html>
-<html ng-app="Watapp">
+<html ng-app="CremeFraiche">
     <head>
-        <title>Map</title>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
-        <script type="text/javascript" src="main.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-route.js"></script>
+        <script src="main.js"></script>
     </head>
-    <body>
-        <h1>Welcome to our map!</h1>
+    <body ng-controller="SoFreshAndSoCremeCreme as cCtrl">
 
-   <section ng-controller="restaurantCtrl as rest">
-            <h2>Restaurants:</h2>
-            <input placeholder="Search names..." ng-model="rest.restFilter">
-
+        <nav>
             <ul>
-                <li ng-repeat="resta in rest.restaurants | filter:rest.restFilter">
-                    {{resta.name}}:
-                    {{resta.style}} - 
-                    <!--{{rest.getNearestLot($index)}}-->
-                    <ul>
-                        <li ng-repeat="item in resta.menu">
-                            {{item}}
-                        </li>    
-                    </ul>    
+                <li>
+                    <a href="/#/">Home</a>
+                </li>
+                <li>
+                    <a href="/#/origins">Origins</a>
+                </li>
+                <li>
+                    <a href="/#/menu">Menu</a>
                 </li>
             </ul>
-        </section>
+        </nav>
 
 
+        <ng-view>
+            <!--This is where our html templates will go-->
+        </ng-view>
 
-        <section ng-controller="parkingCtrl as park">
-            <h2>Lots:</h2>
-            <ul>
-                <li ng-repeat="lot in park.lots | orderBy: 'capacity' | filter:park.filterLots">
-                    Capacity: {{lot.capacity}}</br>
-                    Cost: {{lot.cost | currency:'$'}}</br>
-                    Location: {{lot.location}}
-                </li>
-            </ul>
-        </section>
+        <footer>
+            Copyright 2016
+        </footer>
 
-        <hr>
-
-     
     </body>
 </html>
