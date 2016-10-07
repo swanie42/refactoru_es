@@ -13,15 +13,14 @@
 </head>
 
 <body ng-app='goldRush'>
-    <section ng-controller='goldCtrl as gold'>
-        <div id="markers">
-            <p class="marker" ng-repeat="marker in gold.markers" ng-style="marker" ng-click="gold.removeMarker($event, $index)">
-            </p>
+    <div ng-controller='goldCtrl as gold'>
+        <div class="markerArea">
+            <div class="marker" ng-repeat="marker in gold.markers" ng-style="marker" ng-click="gold.removeMarker($event, $index)">
+</div>
         </div>
-        <div id="map" ng-click="gold.addMarker($event)">
-            <img width="100%" src="topo-co.jpg" />
+        <div class="jumbotron" ng-click="gold.addMarker($event)">
         </div>
-    </section>
+    </div>
 </body>
 
 </html>
