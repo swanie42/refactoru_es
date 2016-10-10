@@ -1,36 +1,81 @@
 <!--launch on localhost:8080-->
 
 <!DOCTYPE html>
-<html ng-app="CremeFraiche">
+<html ng-app="gbApp">
     <head>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css">
+        <link rel="stylesheet" href="main.css">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.js"></script>
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-route.js"></script>
-        <script src="main.js"></script>
+        <script src="gb.js"></cCtrlscript>
+
+        <!-- Custom CSS -->
+          <style>
+            body {
+                padding-top: 70px;
+                  /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+                  }
+          </style>
+          <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
-    <body ng-controller="SoFreshAndSoCremeCreme as cCtrl">
 
-        <nav>
-            <ul>
-                <li>
-                    <a href="/#/">Home</a>
-                </li>
-                <li>
-                    <a href="/#/origins">Origins</a>
-                </li>
-                <li>
-                    <a href="/#/menu">Menu</a>
-                </li>
-            </ul>
-        </nav>
+    <!--BODY GOES HERE-->
+    <body ng-controller = "gbCtrl as gbCtrl">
+      <div class="container">
+        <!-- Navigation -->
+           <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 
+                   <!-- Brand and toggle get grouped for better mobile display -->
+                   <div class="navbar-header">
+                       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                           <span class="sr-only">Toggle navigation</span>
+                           <span class="icon-bar"></span>
+                           <span class="icon-bar"></span>
+                           <span class="icon-bar"></span>
+                       </button>
+                       <a class="navbar-brand" href="/#/">GB Dashboard</a>
+                   </div>
+                   <!-- Collect the nav links, forms, and other content for toggling -->
+                   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                       <ul class="nav navbar-nav">
+                           <li>
+                               <a href="/#/jobs">Jobs</a>
+                           </li>
+                           <li>
+                               <a href="/#/reports">Reports</a>
+                           </li>
+                           <li>
+                               <a href="#">Contracts</a>
+                           </li>
+                       </ul>
+                   </div>
+                   <!-- /.navbar-collapse -->
+               </div>
+               <!-- /.container -->
+           </nav>
+           <!-- Page Content -->
+               <div class="row">
+                   <div class="col-lg-12 text-center">
+                      <ng-view>
+                           <!--This is where our html templates will go-->
+                       </ng-view>
+                   </div>
+               </div>
+               <!-- /.row -->
+           </div>
+           <!-- /.container -->
 
-        <ng-view>
-            <!--This is where our html templates will go-->
-        </ng-view>
+           <!-- jQuery Version 1.11.1 -->
+           <script src="js/jquery.js"></script>
 
-        <footer>
-            Copyright 2016
-        </footer>
+           <!-- Bootstrap Core JavaScript -->
+           <script src="js/bootstrap.min.js"></script>
 
-    </body>
-</html>
+       </body>
+
+       </html>

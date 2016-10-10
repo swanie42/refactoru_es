@@ -13,12 +13,12 @@ function myRouter($routeProvider) {
         .when('/', {
             templateUrl: '/templates/home.html'
         })
-        .when('/origins', {
-            templateUrl: '/templates/origins.html',
+        .when('/jobs', {
+            templateUrl: '/templates/jobs.html',
             controller: "CoffeeOrigins as oCtrl"
         })
-        .when('/menu', {
-            templateUrl: '/templates/menu.html'
+        .when('/reports', {
+            templateUrl: '/templates/reports.html'
         })
         .otherwise({
             redirectTo: '/index.html'
