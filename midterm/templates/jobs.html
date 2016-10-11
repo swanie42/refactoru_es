@@ -1,10 +1,21 @@
 <div>
   <h1>Jobs</h1>
+<div class="card" ng-repeat="job in jCtrl.jobs">
 
-    <ul ng-repeat="jobs">
-      <li>{{ job_name }}</li>
-      <li>{{ job_city }}</li>
-      <li>{{ job_state }}</li>
+    <ul>
+      <!-- <li><img class="img-fluid" src="{{ job.img }}"></li> -->
+
+      <li><a href="/#/jobDetails"><img ng-click="jCtrl.setActiveJob($index)" src="{{ job.img }}" alt="Card image cap"></a><h3>{{ job.name }}</h3></li>
+      <span class="row">
+      <li><div>{{ job.city }}</div></li>
+      <li><div>{{ job.state }}</div></li>
+      </span>
+      <span class="row">
+      <li><div>Margin</div><h2 style="color:rgb(0,{{job.margin}},0)" id="margin">{{ job.margin }}</h2></li>
+      <li><div>Complete</div><h2 style="color:rgb(0,{{job.complete}},0)" id="complete">{{ job.complete }}</h2></li>
+      </span>
     </ul>
+</div>
+
 
 </div>

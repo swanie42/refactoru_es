@@ -1,0 +1,35 @@
+
+ul{
+  list-style-type: none;
+  padding-left: 0px;
+  margin-bottom: 20px;
+
+}
+
+ul span li{
+  display:inline-block;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+ul span li h2{
+  margin:0px;
+}
+ul span li div{
+  color:#aaa;
+}
+.card{
+  width:250px;
+  display:inline-block;
+  background: #eee;
+  margin: 10px;
+  border-radius: 8px;
+  position: relative;
+}
+
+.card img{
+  height:150px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  width:100%;
+  object-fit: cover;
+}
