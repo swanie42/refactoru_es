@@ -1,0 +1,17 @@
+
+<!DOCTYPE html>
+<html ng-app="pokeapp">
+    <head>
+        <title>Ajax</title>
+        <meta charset="utf-8">
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
+        <script src="main.js"></script>
+    </head>
+    <body ng-controller='PokeController as pCtrl'>
+        <h1>{{ pCtrl.text }}</h1>
+        <h3>{{ pCtrl.myData.name }} weighs {{ pCtrl.myData.weight}}</h3>
+
+        <div>
+        </div>
+    </body>
+</html>

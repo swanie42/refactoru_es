@@ -6,14 +6,13 @@
       <!-- <li><img class="img-fluid" src="{{ job.img }}"></li> -->
 
       <li><a href="/#/jobDetails"><img ng-click="jCtrl.setActiveJob($index)" src="{{ job.img }}" alt="Card image cap"></a><h3>{{ job.name }}</h3></li>
-      <span class="row">
-      <li><div>{{ job.city }}</div></li>
-      <li><div>{{ job.state }}</div></li>
-      </span>
-      <span class="row">
-      <li><div>Margin</div><h2 style="color:rgb(0,{{job.margin}},0)" id="margin">{{ job.margin }}</h2></li>
-      <li><div>Complete</div><h2 style="color:rgb(0,{{job.complete}},0)" id="complete">{{ job.complete }}</h2></li>
-      </span>
+        <!-- <span class="row"> -->
+          <li><div>{{ job.city }}, {{ job.state }}</div></li>
+        <!-- </span> -->
+        <span class="row">
+          <li><div>Margin</div><h2 style="color:rgb(0,{{job.margin}},0)" id="margin">{{ job.margin }}%</h2></li>
+          <li><div>Complete</div><h2 style="color:rgb(0,{{job.complete}},0)" id="complete">{{ job.complete }}%</h2></li>
+        </span>
     </ul>
 </div>
 

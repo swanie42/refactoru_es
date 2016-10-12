@@ -1,11 +1,21 @@
-<div>
-  <h1>Job Details</h1>
-<div>
 
-    <ul>
-      <li ng-repeat="(key, value) in jCtrl.jobDetails"> {{key}} : {{value}}</li>
-    </ul>
-</div>
+<div class="figureContainer">
+  <figure>
+
+    <img class="detailImg" ng-src="{{ jCtrl.jobDetails.img }}">
+
+      <figcaption>
+        <h1 class="detailName">{{ jCtrl.jobDetails.name }}</h1>
 
 
-</div>
+      </figcaption>
+            <div class="figsubcaption"> <h2>{{ jCtrl.jobDetails.city }}, {{jCtrl.jobDetails.state}}</h2></div>
+    </figure>
+
+  </div>
+
+  <ul>
+    <h2>Job Name:{{ jCtrl.jobDetails.name }}</h2>
+    <h3>{{ jCtrl.jobDetails.city }}, {{jCtrl.jobDetails.state}}</h3>
+    <h3>{{ jCtrl.jobDetails.city }}, {{jCtrl.jobDetails.state}}</h3>
+  </ul>

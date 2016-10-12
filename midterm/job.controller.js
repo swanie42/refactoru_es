@@ -1,20 +1,29 @@
 
 
-// ---------CONTROLLER---------
-angular.module('gbApp')
-  .controller("JobController", jobCtrl)
+// ---------SETTING UP MODULE METHODS---------
+angular.module('gbApp')//stating the module created on module.js
+//angular.module('name')
 
-// ---------FACTORY ---------
-  .factory("jobFacto", jobFactory)
+  .controller("JobController", jobCtrl)//creating a new controller for the above module
+  //controller(name, constructor)
 
-angular.module('gbApp')
-      .config(myRouter);
+  .factory("jobFacto", jobFactory)//creating a factory for the above module
+  //factory(name, providerFunction)
 
-jobCtrl.$inject = ["jobFacto"];
+angular.module('gbApp')//stating the module for the config
+//angular.module('name')
+      .config(myRouter);//method to register work which needs to be performed on module loading
+      //config(configFn)
 
-myRouter.$inject = ['$routeProvider'];
+// --------SETTING UP SERVICES---------
 
-// ---------ROUTE---------
+jobCtrl.$inject = ["jobFacto"];//injecting the factory into the controller constructor
+//controller constructor.$inject property = ["factoryName"];
+
+myRouter.$inject = ['$routeProvider'];//naming a router
+//routerName.$inject property = ["functionPerameter"];
+
+// ---------SETTING UP ROUTE SERVICE---------
   function myRouter($routeProvider) {
 
       $routeProvider
@@ -34,20 +43,20 @@ myRouter.$inject = ['$routeProvider'];
               redirectTo: '/index.html'
           })
   }
-// ---------FACTORY---------
+// ---------CREATING THE FACTORY FOR JOBCONTROLLER---------
 function jobFactory() {
   return {
     jobs: [
         {
-          img:"http://www.jesuismonreve.org/wp-content/uploads/2010/11/the_cloud_factory_01.jpg"
-          ,name: "AppleJelly Factory"
+          img:"http://animalnewyork.com/wp-content/uploads/domino-sugar-factory-continued.jpg"
+          ,name: "Domino Sugar"
           ,city: "Appleton"
           ,state: "WI"
           ,margin: 35
           ,complete: 80
         },
         {
-          img:"http://d1ya1fm0bicxg1.cloudfront.net/14-08222012-5035b51f34061.jpeg"
+          img:"https://upload.wikimedia.org/wikipedia/commons/2/2a/Pepsi_Center,_Denver.jpg"
           ,name: "Pepsi Center"
           ,city: "Denver"
           ,state: "CO"
@@ -63,10 +72,10 @@ function jobFactory() {
           ,complete: 100
         },
         {
-          img:"http://www.adweek.com/agencyspy/wp-content/uploads/sites/7/2015/07/toys-r-us-store.jpg"
-          ,name: "Toys R Us"
-          ,city: "Las Vegas"
-          ,state: "NV"
+          img:"http://forteandtablada.com/site/wp-content/uploads/2016/04/STAFA-900x600.jpg"
+          ,name: "St. Amant HS"
+          ,city: "Gonzales"
+          ,state: "LA"
           ,margin: 22
           ,complete: 100
         },
@@ -82,20 +91,19 @@ function jobFactory() {
   }
 }
 
+//--------ADDING FUNCTIONALITY TO THE JOBCONTROLLER--------
 function jobCtrl(jobFactory){
     var jCtrl = this;
 
-    jCtrl.jobs = jobFactory.jobs;
+    jCtrl.jobs = jobFactory.jobs;//defining relationship between the controller and factory
+//controller constructor.name of object array
 
     jCtrl.setActiveJob = function(index) {
         jCtrl.jobDetails = jCtrl.jobs[index];
     }
 }
-var colorMatchMargin = {
-  '0-19'     : 'red',
-  '20-59'    : 'orange',
-  '60-100'   : 'green'
-};
+
+//--------CREATING MODELS-----------
 var job = {
     name : ""
   , image : ""

@@ -33,3 +33,67 @@ ul span li div{
   width:100%;
   object-fit: cover;
 }
+.detailImg{
+  height:400px;
+  width:100%;
+  object-fit: cover;
+  position: relative;
+}
+.detailName{
+  position:absolute;
+
+}
+div ul li span{
+  margin:0px;
+  height:0px;
+  font-size:0;
+}
+
+.figureContainer {
+  display: inline-block;
+  width: 100%;
+  vertical-align: top;
+  padding: 10px;
+}
+figure {
+  position: relative;
+
+}
+
+figcaption {
+  position: absolute;
+  text-align: center;
+  top: 20%;
+  right: 0;
+  left: 0;
+
+}
+figcaption h1 {
+  color:white;
+  font-size:100px;
+  text-shadow: 2px 2px #000;
+  padding-left: 10px;
+}
+.figsubcaption {
+  position: absolute;
+  text-align: center;
+  top: 80%;
+  right: 0;
+  left: 0;
+
+}
+.figsubcaption h2{
+  font-size:40px;
+  font-family: sans-serif;
+  font-style: oblique;
+  color:white;
+  background-color:rgba(0,0,0,0.5);
+
+}
+
+figure img {
+  width: 100%;
+  display: block;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
