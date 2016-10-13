@@ -7,99 +7,58 @@ angular.module('gbApp')//stating the module created on module.js
   .controller("JobController", jobCtrl)//creating a new controller for the above module
   //controller(name, constructor)
 
-  .factory("jobFacto", jobFactory)//creating a factory for the above module
-  //factory(name, providerFunction)
-
-angular.module('gbApp')//stating the module for the config
-//angular.module('name')
-      .config(myRouter);//method to register work which needs to be performed on module loading
-      //config(configFn)
-
 // --------SETTING UP SERVICES---------
 
-jobCtrl.$inject = ["jobFacto"];//injecting the factory into the controller constructor
+jobCtrl.$inject = ["jobFacto", "$timeout"];//injecting the factory into the controller constructor
 //controller constructor.$inject property = ["factoryName"];
 
-myRouter.$inject = ['$routeProvider'];//naming a router
-//routerName.$inject property = ["functionPerameter"];
 
-// ---------SETTING UP ROUTE SERVICE---------
-  function myRouter($routeProvider) {
 
-      $routeProvider
-          .when('/', {
-              templateUrl: '/templates/home.html'
-          })
-          .when('/jobs', {
-              templateUrl: '/templates/jobs.html',
-          })
-          .when('/reports', {
-              templateUrl: '/templates/reports.html'
-          })
-          .when('/jobDetails', {
-              templateUrl: '/templates/jobDetails.html'
-          })
-          .otherwise({
-              redirectTo: '/index.html'
-          })
-  }
-// ---------CREATING THE FACTORY FOR JOBCONTROLLER---------
-function jobFactory() {
-  return {
-    jobs: [
-        {
-          img:"http://animalnewyork.com/wp-content/uploads/domino-sugar-factory-continued.jpg"
-          ,name: "Domino Sugar"
-          ,city: "Appleton"
-          ,state: "WI"
-          ,margin: 35
-          ,complete: 80
-        },
-        {
-          img:"https://upload.wikimedia.org/wikipedia/commons/2/2a/Pepsi_Center,_Denver.jpg"
-          ,name: "Pepsi Center"
-          ,city: "Denver"
-          ,state: "CO"
-          ,margin: 22
-          ,complete: 100
-        },
-        {
-          img:"https://3dprint.com/wp-content/uploads/2016/01/strykerhq.png"
-          ,name: "Printer Facility"
-          ,city: "Mesa"
-          ,state: "AZ"
-          ,margin: 22
-          ,complete: 100
-        },
-        {
-          img:"http://forteandtablada.com/site/wp-content/uploads/2016/04/STAFA-900x600.jpg"
-          ,name: "St. Amant HS"
-          ,city: "Gonzales"
-          ,state: "LA"
-          ,margin: 22
-          ,complete: 100
-        },
-        {
-          img:"http://www.neumannsmith.com/wp-content/uploads/2015/06/WSU-STUDENT-CENTER-JD-9.jpg"
-          ,name: "Student Center"
-          ,city: "Flint"
-          ,state: "MI"
-          ,margin: 22
-          ,complete: 100
-        },
-    ],
-  }
-}
 
 //--------ADDING FUNCTIONALITY TO THE JOBCONTROLLER--------
-function jobCtrl(jobFactory){
+function jobCtrl(jobFactory, $timeout){
     var jCtrl = this;
 
     jCtrl.jobs = jobFactory.jobs;//defining relationship between the controller and factory
 //controller constructor.name of object array
 
-    jCtrl.setActiveJob = function(index) {
+    jCtrl.setActiveJob = function(index) {//making a function to get properties in the jobs object by index
         jCtrl.jobDetails = jCtrl.jobs[index];
+    }
+    jCtrl.newJob = {}; // declaring newJob for readibility, angular WILL create it when we type into the inputs.  It's nice to show other developers and remind yourself that this is a variable being used in the controller
+
+
+    //window.jCtrl = jCtrl; // Attaching the ctrl object to the window is nice for debugging, but shouldn't stay in your production code
+
+    jCtrl.greeting = 'Fill out this form please!';
+
+    jCtrl.addJob = function(){
+
+        if(jCtrl.newJob.img && jCtrl.newJob.name && jCtrl.newJob.city && jCtrl.newJob.state && jCtrl.newJob.complete && jCtrl.newJob.margin){
+
+            jCtrl.jobs.unshift( jCtrl.newJob );
+
+            // Give newJob a new object
+            jCtrl.newJob = {};
+
+            // Manually trigger the modal
+            $('#myModal').modal('toggle');
+
+
+            var jobs = angular.copy(jCtrl.jobs); // copy our list of jobs
+
+            // Strip $$hashKey for storage
+            jobs.forEach(function(job){
+                delete job.$$hashKey;
+            });
+        }
+        else{
+            jCtrl.jobFormErrMessage = 'Fill out the form completely!';
+            $timeout(function(){
+                jCtrl.jobFormErrMessage = '';
+            }, 3000)
+        }
+
     }
 }
 
