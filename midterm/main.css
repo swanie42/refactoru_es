@@ -21,7 +21,7 @@ figcaption {
 }
 figcaption h1 {
   color:white;
-  font-size:100px;
+  font-size: 600%;
   text-shadow: 2px 2px 5px #222;
   padding-left: 10px;
 
@@ -35,7 +35,7 @@ figcaption h1 {
 
 }
 .figsubcaption h2{
-  font-size:40px;
+  font-size:300%;
   font-family: sans-serif;
   font-style: oblique;
   color:white;
@@ -57,6 +57,20 @@ figure img {
 .jobsTopRightButton{
   position: absolute;
   right:5%;
+}
+
+/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+.row.content {height: 550px}
+
+/* Set gray background color and 100% height */
+.sidenav {
+  background-color: #f1f1f1;
+  height: 100%;
+}
+
+/* On small screens, set height to 'auto' for the grid */
+@media screen and (max-width: 767px) {
+  .row.content {height: auto;}
 }
 
 /*------BODY--------*/
@@ -95,7 +109,7 @@ ul span li div{
   object-fit: cover;
 }
 .detailImg{
-  height:400px;
+  height:250px;
   width:100%;
   object-fit: cover;
   position: relative;

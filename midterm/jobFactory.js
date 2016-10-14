@@ -13,6 +13,7 @@ function jobFactory() {
           ,state: "WI"
           ,margin: 35
           ,complete: 80
+          ,zones:[]
         },
         {
           img:"https://upload.wikimedia.org/wikipedia/commons/2/2a/Pepsi_Center,_Denver.jpg"
@@ -21,6 +22,7 @@ function jobFactory() {
           ,state: "CO"
           ,margin: 22
           ,complete: 100
+          ,zones:[]
         },
         {
           img:"https://3dprint.com/wp-content/uploads/2016/01/strykerhq.png"
@@ -29,6 +31,7 @@ function jobFactory() {
           ,state: "AZ"
           ,margin: 22
           ,complete: 100
+          ,zones:[]
         },
         {
           img:"http://forteandtablada.com/site/wp-content/uploads/2016/04/STAFA-900x600.jpg"
@@ -37,6 +40,7 @@ function jobFactory() {
           ,state: "LA"
           ,margin: 22
           ,complete: 100
+          ,zones:[]
         },
         {
           img:"http://www.neumannsmith.com/wp-content/uploads/2015/06/WSU-STUDENT-CENTER-JD-9.jpg"
@@ -45,6 +49,7 @@ function jobFactory() {
           ,state: "MI"
           ,margin: 22
           ,complete: 100
+          ,zones:[]
         },
     ],
   }

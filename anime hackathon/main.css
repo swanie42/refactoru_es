@@ -1,0 +1,75 @@
+body {
+    background-color: grey;
+    background-image: url('http://media1.s-nbcnews.com/i/MSNBC/Components/Video/201606/a_debunker_scott_NASA_Mars_Mission_160601.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    background-attachment: fixed;
+}
+
+.asteroid {
+    color: white;
+    font-size: 2em;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: left;
+    padding: 5%;
+    background-image: url("asteroid.jpg");
+    text-shadow: 2px 2px 5px grey;
+    /*display: flex;
+    flex-direction: row;*/
+}
+
+.asteroid h2 {
+    color: white;
+    font-size: 2em;
+}
+
+.asteroid a {
+    font-size: 0.6em;
+}
+
+.hazard {
+    color: red;
+    font-weight: bold;
+}
+
+.header h1 {
+    font-size: 7em;
+}
+
+.header {
+    /*background-color: #000;*/
+    opacity: 0.5;
+}
+
+#apod_img_id {
+    object-fit: cover;
+    height: 600px;
+    width: 1200px;
+    border: solid white 2px;
+}
+
+.well {
+    border: 5px solid black;
+}
+
+.searchDate {
+    color: white;
+}
+
+.josh {
+    background-color: #111;
+    /*background-opacity: 0.8;*/
+}
+.josh h1{
+    color:white;
+}
+.josh h3{
+    color:#666;
+}
+.description{
+  color:white;
+  font-size:1.5em;
+
+}

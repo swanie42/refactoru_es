@@ -7,6 +7,12 @@ angular.module('gbApp')//stating the module created on module.js
   .controller("JobController", jobCtrl)//creating a new controller for the above module
   //controller(name, constructor)
 
+// set up google maps api
+  // $http.get("")
+  // .success(functional(data){
+  //   main.animeList.push([])
+  // })
+
 // --------SETTING UP SERVICES---------
 
 jobCtrl.$inject = ["jobFacto", "$timeout"];//injecting the factory into the controller constructor
@@ -16,10 +22,10 @@ jobCtrl.$inject = ["jobFacto", "$timeout"];//injecting the factory into the cont
 
 
 //--------ADDING FUNCTIONALITY TO THE JOBCONTROLLER--------
-function jobCtrl(jobFactory, $timeout){
+function jobCtrl(jobFacto, $timeout){
     var jCtrl = this;
 
-    jCtrl.jobs = jobFactory.jobs;//defining relationship between the controller and factory
+    jCtrl.jobs = jobFacto.jobs;//defining relationship between the controller and factory
 //controller constructor.name of object array
 
     jCtrl.setActiveJob = function(index) {//making a function to get properties in the jobs object by index

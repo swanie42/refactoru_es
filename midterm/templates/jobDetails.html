@@ -65,9 +65,10 @@
     <h3>{{ jCtrl.jobDetails.city }}, {{jCtrl.jobDetails.state}}</h3>
     <h3>{{ jCtrl.jobDetails.city }}, {{jCtrl.jobDetails.state}}</h3>
   </ul>
-
+<!--ZONES-->
+<div ng-controller="ZoneController as zCtrl">
   <div class="jobsHeader">
-    <button type="button" class="btn btn-primary btn-lg jobsTopRightButton" data-toggle="modal" data-target="#myModal" style="margin-right:30px;">
+    <button type="button" class="btn btn-primary btn-lg jobsTopRightButton" data-toggle="modal" data-target="#newZoneForm" style="margin-right:30px;">
      New Zone
     </button>
     <h1>Zones</h1>
@@ -76,48 +77,49 @@
 
 
    <!-- Modal -->
-   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+   <div class="modal fade" id="newZoneForm" tabindex="-1" role="dialog" aria-labelledby="newZoneFormLabel">
        <div class="modal-dialog" role="document">
            <div class="modal-content">
-               <form ng-submit="jCtrl.addJob()">
+               <form ng-submit="zCtrl.addZone()">
                    <div class="modal-header">
                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                       <h4 class="modal-title" id="myModalLabel">Add a Job!</h4>
+                       <h4 class="modal-title" id="newZoneFormLabel">Add a Zone!</h4>
                    </div>
                    <div class="modal-body">
 
-                       <input class="form-control" ng-model="jCtrl.newJob.img" placeholder="image url">
-                       <input class="form-control" ng-model="jCtrl.newJob.name" placeholder="Name">
-                       <input class="form-control" ng-model="jCtrl.newJob.city" placeholder="City">
-                       <input class="form-control" ng-model="jCtrl.newJob.state" placeholder="State">
-                       <input class="form-control" ng-model="jCtrl.newJob.complete" placeholder="Complete">
-                       <input class="form-control" ng-model="jCtrl.newJob.margin" placeholder="Margin">
+                       <input class="form-control" ng-model="zCtrl.newZone.img" placeholder="image url">
+                       <input class="form-control" ng-model="zCtrl.newZone.name" placeholder="Name">
+                       <input class="form-control" ng-model="zCtrl.newZone.city" placeholder="City">
+                       <input class="form-control" ng-model="zCtrl.newZone.state" placeholder="State">
+                       <input class="form-control" ng-model="zCtrl.newZone.complete" placeholder="Complete">
+                       <input class="form-control" ng-model="zCtrl.newZone.margin" placeholder="Margin">
 
 
 
 
                    </div>
                    <div class="modal-footer">
-                       <p class="warning-text">{{jCtrl.jobFormErrMessage}}</p>
+                       <p class="warning-text">{{zCtrl.zoneFormErrMessage}}</p>
                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                       <button type="submit" class="btn btn-primary">Add this Job</button>
+                       <button type="submit" class="btn btn-primary">Add this Zone</button>
                    </div>
                </form>
            </div>
        </div>
    </div>
-   <div class="card" ng-repeat="job in jCtrl.jobs">
+   <div class="card" ng-repeat="zone in zCtrl.zones">
 
      <ul>
-       <!-- <li><img class="img-fluid" src="{{ job.img }}"></li> -->
+       <!-- <li><img class="img-fluid" src="{{ zone.img }}"></li> -->
 
-       <li><a href="/#/jobDetails"><img ng-click="jCtrl.setActiveJob($index)" ng-src="{{ job.img }}" alt="Card image cap"></a><h3>{{ job.name }}</h3></li>
+       <li><a href="/#/jobDetails"><img ng-click="zCtrl.setActiveZone($index)" ng-src="{{ zone.img }}" alt="Card image cap"></a><h3>{{ zone.name }}</h3></li>
          <!-- <span class="row"> -->
-           <li><div>{{ job.city }}, {{ job.state }}</div></li>
+           <li><div>{{ zone.city }}, {{ zone.state }}</div></li>
          <!-- </span> -->
          <span class="row">
-           <li><div>Margin</div><h2 style="color:rgb(0,{{job.margin}},0)" id="margin">{{ job.margin }}%</h2></li>
-           <li><div>Complete</div><h2 style="color:rgb(0,{{job.complete}},0)" id="complete">{{ job.complete }}%</h2></li>
+           <li><div>Margin</div><h2 style="color:rgb(0,{{zone.margin}},0)" id="margin">{{ zone.margin }}%</h2></li>
+           <li><div>Complete</div><h2 style="color:rgb(0,{{zone.complete}},0)" id="complete">{{ zone.complete }}%</h2></li>
          </span>
      </ul>
    </div>
+</div>

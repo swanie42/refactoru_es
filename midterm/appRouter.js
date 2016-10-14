@@ -11,7 +11,7 @@ function myRouter($routeProvider) {
             templateUrl: '/templates/home.html'
         })
         .when('/jobs', {
-            templateUrl: '/templates/jobs.html',
+            templateUrl: '/templates/jobs.html'
         })
         .when('/reports', {
             templateUrl: '/templates/reports.html'
