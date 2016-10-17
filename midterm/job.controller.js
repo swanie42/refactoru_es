@@ -66,6 +66,33 @@ function jobCtrl(jobFacto, $timeout){
         }
 
     }
+    jCtrl.done = function(jobs){
+      var done = 0;
+      jobs.forEach(function(job){
+        if(job.complete === 100){
+          done++
+        };
+
+      });
+      return done;
+    };
+    jCtrl.active = function(jobs){
+      var active = 0;
+      jobs.forEach(function(job){
+        if(job.complete < 100){
+          active++
+        };
+
+      });
+      return active;
+    };
+}
+window.gen = function genterateHexString(length) {
+  var ret="";
+  while(ret.length < length){
+    ret += Math.random().toString(16).substring(2);
+  }
+  return ret.substring(0,length);
 }
 
 //--------CREATING MODELS-----------

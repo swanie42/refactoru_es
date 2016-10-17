@@ -1,4 +1,16 @@
 /*------Header--------*/
+/* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+/*.row.content {
+  height: 1500px
+}
+
+ Set gray background color and 100% height */
+.sidenav {
+  background-color: #f1f1f1;
+  height: 100%;
+  border-radius: 8px;
+}
+
 .figureContainer {
   display: inline-block;
   width: 100%;
@@ -14,14 +26,14 @@ figure {
 figcaption {
   position: absolute;
   text-align: center;
-  top: 20%;
+  top: 10%;
   right: 0;
   left: 0;
 
 }
 figcaption h1 {
   color:white;
-  font-size: 600%;
+  font-size: 500%;
   text-shadow: 2px 2px 5px #222;
   padding-left: 10px;
 
@@ -29,13 +41,13 @@ figcaption h1 {
 .figsubcaption {
   position: absolute;
   text-align: center;
-  top: 80%;
+  top: 60%;
   right: 0;
   left: 0;
 
 }
 .figsubcaption h2{
-  font-size:300%;
+  font-size:250%;
   font-family: sans-serif;
   font-style: oblique;
   color:white;

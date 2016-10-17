@@ -1,4 +1,7 @@
 
+
+
+<!--figure container-->
 <div class="figureContainer">
   <figure>
 
@@ -20,7 +23,38 @@
     <h1>Job Details</h1>
   </div>
 
+  <!--sidenav-->
+  <div class="container-fluid">
+    <div class="row content">
+      <div class="col-sm-3 sidenav" ng-controller="activityController as aCtrl">
+        <h4>New Activity</h4>
+        
+        <select ng-options="component as component.label for component in aCtrl.activity.components" ng-model ="aCtrl.selected.component">
+        </select>
 
+        <select ng-options="material as material.label for material in aCtrl.activity.materials | filter : aCtrl.activityFilter('component', material.label)" ng-model ="aCtrl.selected.material">
+        </select>
+
+        <select ng-options="action as action.label for action in aCtrl.activity.actions" ng-model ="aCtrl.selected.action">
+        </select>
+
+        <select ng-options="method as method.label for method in aCtrl.activity.methods" ng-model ="aCtrl.selected.method">
+        </select>
+        <ul class="nav nav-pills nav-stacked">
+          <li class="active"><a href="#section1">Home</a></li>
+          <li><a href="#section2">Friends</a></li>
+          <li><a href="#section3">Family</a></li>
+          <li><a href="#section3">Photos</a></li>
+        </ul><br>
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search Blog..">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button">
+              <span class="glyphicon glyphicon-search"></span>
+            </button>
+          </span>
+        </div>
+      </div>
 
    <!-- Modal -->
    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

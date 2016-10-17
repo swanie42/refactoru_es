@@ -11,8 +11,8 @@ function jobFactory() {
           ,name: "Domino Sugar"
           ,city: "Appleton"
           ,state: "WI"
-          ,margin: 35
-          ,complete: 80
+          ,margin: 86
+          ,complete: 20
           ,zones:[]
         },
         {
@@ -21,7 +21,7 @@ function jobFactory() {
           ,city: "Denver"
           ,state: "CO"
           ,margin: 22
-          ,complete: 100
+          ,complete: 80
           ,zones:[]
         },
         {
