@@ -28,18 +28,21 @@
     <div class="row content">
       <div class="col-sm-3 sidenav" ng-controller="activityController as aCtrl">
         <h4>New Activity</h4>
-        
-        <select ng-options="component as component.label for component in aCtrl.activity.components" ng-model ="aCtrl.selected.component">
+
+        <select ng-options="component as component.label for component in aCtrl.activity.components" ng-model ="aCtrl.selected.component"><option value="" disabled selected>Component</option>
         </select>
 
-        <select ng-options="material as material.label for material in aCtrl.activity.materials | filter : aCtrl.activityFilter('component', material.label)" ng-model ="aCtrl.selected.material">
+        <select ng-show="aCtrl.selected.component" ng-options="material as material.label for material in aCtrl.activity.materials | inArray:aCtrl.selected.component.show:'label'" ng-model="aCtrl.selected.material"><option value="" disabled selected>Material</option>
         </select>
 
-        <select ng-options="action as action.label for action in aCtrl.activity.actions" ng-model ="aCtrl.selected.action">
+        <select ng-show="aCtrl.selected.material" ng-options="action as action.label for action in aCtrl.activity.actions | inArray:aCtrl.selected.material.show:'label'" ng-model ="aCtrl.selected.action"><option value="" disabled selected>Action</option>
         </select>
 
-        <select ng-options="method as method.label for method in aCtrl.activity.methods" ng-model ="aCtrl.selected.method">
+        <select ng-show="aCtrl.selected.action"  ng-options="method as method.label for method in aCtrl.activity.methods | inArray:aCtrl.selected.action.show:'label'" ng-model ="aCtrl.selected.method"><option value="" disabled selected>Method</option>
         </select>
+
+        <h5>{{ aCtrl.selected.action.label }} {{ aCtrl.selected.material.label }} {{ aCtrl.selected.component.label }} {{ aCtrl.selected.method.label }}</h5>
+
         <ul class="nav nav-pills nav-stacked">
           <li class="active"><a href="#section1">Home</a></li>
           <li><a href="#section2">Friends</a></li>
@@ -94,7 +97,7 @@
        </div>
    </div>
   <ul>
-
+    <!--job details -->
     <h2>Job Name:{{ jCtrl.jobDetails.name }}</h2>
     <h3>{{ jCtrl.jobDetails.city }}, {{jCtrl.jobDetails.state}}</h3>
     <h3>{{ jCtrl.jobDetails.city }}, {{jCtrl.jobDetails.state}}</h3>

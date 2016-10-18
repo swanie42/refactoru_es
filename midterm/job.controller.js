@@ -8,21 +8,21 @@ angular.module('gbApp')//stating the module created on module.js
   //controller(name, constructor)
 
 // set up google maps api
-  // $http.get("")
-  // .success(functional(data){
-  //   main.animeList.push([])
-  // })
+
 
 // --------SETTING UP SERVICES---------
 
-jobCtrl.$inject = ["jobFacto", "$timeout"];//injecting the factory into the controller constructor
+jobCtrl.$inject = ["jobFacto", "$timeout", "$http"];//injecting the factory into the controller constructor
 //controller constructor.$inject property = ["factoryName"];
 
 
 
 
 //--------ADDING FUNCTIONALITY TO THE JOBCONTROLLER--------
-function jobCtrl(jobFacto, $timeout){
+function jobCtrl(jobFacto, $timeout, $http){
+  $http.get("https://maps.googleapis.com/maps/api/place/autocomplete/json?input="+"boulder"+"&key=AIzaSyDUc_Yr0rbxPpJH9fF3cbj5Ao1VxQSAi4E").success(function(data){
+    console.log(data);
+  });
     var jCtrl = this;
 
     jCtrl.jobs = jobFacto.jobs;//defining relationship between the controller and factory

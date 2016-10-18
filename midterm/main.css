@@ -52,7 +52,6 @@ figcaption h1 {
   font-style: oblique;
   color:white;
   text-shadow: 2px 2px 5px #222;]
-
 }
 
 figure img {
@@ -134,4 +133,9 @@ div ul li span{
   margin:0px;
   height:0px;
   font-size:0;
+}
+select{
+  width: 200px;
+  height: 30px;
+  margin:4px;
 }
