@@ -11,23 +11,14 @@
       </ul><br>
       <div class="input-group">
 
-      <form ng-submit="jCtrl.autoPlace()">
 
-        <input ng-model="jCtrl.search" ng-keyup="jCtrl.autoPlace()" type="text" class="form-control" placeholder="Search Google">
-        </form>
-        <div>{{ jCtrl.autoPlace }}</div>
-        <span class="input-group-btn">
 
-          <button class="btn btn-default" type="button">
-            <span class="glyphicon glyphicon-search"></span>
-          </button>
-        </span>
       </div>
     </div>
 
 <div>
     <div class="jobsHeader">
-      <button type="button" class="btn btn-primary btn-lg jobsTopRightButton" data-toggle="modal" data-target="#myModal" style="margin-right:30px;">
+      <button type="button" class="btn btn-primary btn-lg jobsTopRightButton" data-toggle="modal" data-target="#myModal" style="margin-right:30px;" ng-click="jCtrl.focusId('searchBar')">
        New Job
       </button>
       <h1>Jobs</h1>
@@ -39,17 +30,17 @@
      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
          <div class="modal-dialog" role="document">
              <div class="modal-content">
-                 <form ng-submit="jCtrl.addJob()">
+                 <form ng-submit="jCtrl.addJob(); jCtrl.autoPlace()">
                      <div class="modal-header">
                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                          <h4 class="modal-title" id="myModalLabel">Add a Job!</h4>
                           <div class="input-group">
 
-                         <form ng-submit="jCtrl.autoPlace()">
 
-                           <input class="searchBar" ng-model="jCtrl.search" ng-keyup="jCtrl.autoPlace()" type="text" class="form-control" placeholder="Search Google">
-                           </form>
-                           <div>{{ jCtrl.autoResults.predictions[0].description }}</div>
+
+                           <input id="searchBar" class="searchBar" ng-model="jCtrl.search" ng-keyup="jCtrl.autoPlace()" type="text" class="form-control" placeholder="Search Google">
+
+                           <div ng-hide="jCtrl.search===''" ng-repeat="pred in jCtrl.autoResults.predictions">{{pred.description}}</div>
 
                          </div>
                      </div>
@@ -76,7 +67,7 @@
     <ul>
       <!-- <li><img class="img-fluid" src="{{ job.img }}"></li> -->
 
-      <li><a href="/#/jobDetails"><img ng-click="jCtrl.setActiveJob($index)" ng-src="{{ job.img }}" alt="Card image cap"></a><h3>{{ job.name }}</h3></li>
+      <li><a href="/#/jobDetails"><img ng-click="jCtrl.setActiveJob($index); jCtrl.checkNewJob()" ng-src="{{ job.img }}"></a><h3>{{ job.name }}</h3></li>
         <!-- <span class="row"> -->
           <li><div>{{ job.city }}, {{ job.state }}</div></li>
         <!-- </span> -->

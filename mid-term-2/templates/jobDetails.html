@@ -22,7 +22,7 @@
   <div class="container-fluid">
     <div class="row content">
       <!--sidenav-->
-      <div class="col-sm-3 sidenav" ng-controller="activityController as aCtrl">
+      <div class="col-sm-2 sidenav" ng-controller="activityController as aCtrl">
 
         <h4 ng-hide="aCtrl.selected.method">New Activity</h4>
         <h3 ng-show="aCtrl.selected.method">{{ aCtrl.selected.action.label }} {{ aCtrl.selected.material.label | lowercase }} {{ aCtrl.selected.component.label | lowercase }} with {{ aCtrl.selected.method.label | lowercase }}</h3>
@@ -57,7 +57,20 @@
           <input type="text" class="form-control" id="usr">
         </div>
 
-
+        <ul class="nav nav-pills nav-stacked">
+          <li class="active"><a href="#section1">Home</a></li>
+          <li><a href="#section2">Friends</a></li>
+          <li><a href="#section3">Family</a></li>
+          <li><a href="#section3">Photos</a></li>
+        </ul><br>
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search Blog..">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button">
+              <span class="glyphicon glyphicon-search"></span>
+            </button>
+          </span>
+        </div>
       </div>
       <!--jobsHeader-->
   <!-- EDIT JOB MOTAL and BUTTON -->
@@ -123,7 +136,7 @@
       </div>
 
 
-  <div class="col-sm-9">
+    <div class="col-sm-9">
       <span class="description" ng-click="jCtrl.hideText('jobDescription', 'editDescription')" ng-show="!jCtrl.editDescription">{{jCtrl.jobDetails.description}}</span><textarea id="jobDescription" placeholder="Job description" ng-model="jCtrl.jobDetails.description" ng-blur="jCtrl.blurText('editDescription', 'description')" ng-show="jCtrl.editDescription" type="text" name="Description"/>
     </div>
 
@@ -132,14 +145,10 @@
 <!--ZONES-->
 <div ng-controller="ZoneController as zCtrl">
   <div class="jobsHeader">
-
+    <button type="button" class="btn btn-primary btn-lg jobsTopRightButton" data-toggle="modal" data-target="#newZoneForm" style="margin-right:30px;">
+     New Zone
+    </button>
     <h1>Zones</h1>
-        <button type="button" class="btn btn-primary btn-lg jobsTopRightButton"
-        data-toggle="modal"
-        data-target="#newZoneForm"
-        style="margin-right:30px;">
-         New Zone
-        </button>
   </div>
 
 

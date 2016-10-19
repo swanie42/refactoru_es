@@ -4,15 +4,15 @@
 angular.module('gbApp')//stating the module created on module.js
 //angular.module('name')
 
-  .controller("JobController", jobCtrl)//creating a new controller for the above module
-  //controller(name, constructor)
+.controller("JobController", jobCtrl)//creating a new controller for the above module
+//controller(name, constructor)
 
 // set up google maps api
 
 
 // --------SETTING UP SERVICES---------
 
- //injecting the factory into the controller constructor
+//injecting the factory into the controller constructor
 jobCtrl.$inject  = ["jobFacto", "PlaceFactory","$timeout", "$http"];
 
 
@@ -20,11 +20,11 @@ jobCtrl.$inject  = ["jobFacto", "PlaceFactory","$timeout", "$http"];
 
 //--------ADDING FUNCTIONALITY TO THE JOBCONTROLLER--------
 function jobCtrl(jobFacto, PlaceFactory, $timeout, $http) {
-  // $http.get("https://maps.googleapis.com/maps/api/place/autocomplete/json?input="+"boulder"+"&key=AIzaSyDUc_Yr0rbxPpJH9fF3cbj5Ao1VxQSAi4E").success(function(data){
-  //   console.log(data);
-  // });
+    // $http.get("https://maps.googleapis.com/maps/api/place/autocomplete/json?input="+"boulder"+"&key=AIzaSyDUc_Yr0rbxPpJH9fF3cbj5Ao1VxQSAi4E").success(function(data){
+    //   console.log(data);
+    // });
 
-  // SET JOB EDIT TOGGLE TO FALSE
+    // SET JOB EDIT TOGGLE TO FALSE
     var jCtrl = this;
 
     jCtrl.editName = false;
@@ -38,23 +38,23 @@ function jobCtrl(jobFacto, PlaceFactory, $timeout, $http) {
     jCtrl.editFNOLdate = false;
 
     jCtrl.checkNewJob = function() {
-      if(jCtrl.jobDetails.address === "") {
-        jCtrl.editAddress = true;
+        if(jCtrl.jobDetails.address === "") {
+            jCtrl.editAddress = true;
 
-      }
-      if(jCtrl.jobDetails.zip === "") {
-        jCtrl.editZip = true;
+        }
+        if(jCtrl.jobDetails.zip === "") {
+            jCtrl.editZip = true;
 
-      }
-      if(jCtrl.jobDetails.phone === "") {
-        jCtrl.editPhone = true;
+        }
+        if(jCtrl.jobDetails.phone === "") {
+            jCtrl.editPhone = true;
 
-      }
+        }
     }
 
 
     jCtrl.jobs = jobFacto.jobs;//defining relationship between the controller and factory
-//controller constructor.name of object array
+    //controller constructor.name of object array
 
     jCtrl.setActiveJob = function(index) {//making a function to get properties in the jobs object by index
         jCtrl.jobDetails = jCtrl.jobs[index];
@@ -65,37 +65,37 @@ function jobCtrl(jobFacto, PlaceFactory, $timeout, $http) {
     //window.jCtrl = jCtrl; // Attaching the ctrl object to the window is nice for debugging, but shouldn't stay in your production code
 
     jCtrl.autoPlace = function(){
-      if(jCtrl.timePromise){
-          $timeout.cancel(jCtrl.timePromise)
-      }
-      jCtrl.timePromise = $timeout(function(){
-        PlaceFactory.searchPlace(jCtrl.search)
-          .then(function(res){
-            console.log(res.data);
-            jCtrl.autoResults = res.data;
+        if(jCtrl.timePromise){
+            $timeout.cancel(jCtrl.timePromise)
+        }
+        jCtrl.timePromise = $timeout(function(){
+            PlaceFactory.searchPlace(jCtrl.search)
+            .then(function(res){
+                console.log(res.data);
+                jCtrl.autoResults = res.data;
 
-            jCtrl.newJob.name = res.data.predictions[0].terms[0].value;
-            jCtrl.newJob.street = res.data.predictions[0].terms[1].value;
-            jCtrl.newJob.city = res.data.predictions[0].terms[2].value;
-            jCtrl.newJob.state = res.data.predictions[0].terms[3].value;
-            jCtrl.newJob.margin = "0";
-            jCtrl.newJob.complete = "0";
-            jCtrl.newJob.img = "https://s-media-cache-ak0.pinimg.com/originals/bc/6f/27/bc6f2743296b0fdc75322f56ef5bf3bd.jpg";
-            jCtrl.newJob.address = "";
-            jCtrl.newJob.zip = "";
-            jCtrl.newJob.phone = "";
-            jCtrl.newJob.description = "";
-
-
+                jCtrl.newJob.name = res.data.predictions[0].terms[0].value;
+                jCtrl.newJob.street = res.data.predictions[0].terms[1].value;
+                jCtrl.newJob.city = res.data.predictions[0].terms[2].value;
+                jCtrl.newJob.state = res.data.predictions[0].terms[3].value;
+                jCtrl.newJob.margin = "0";
+                jCtrl.newJob.complete = "0";
+                jCtrl.newJob.img = "https://s-media-cache-ak0.pinimg.com/originals/bc/6f/27/bc6f2743296b0fdc75322f56ef5bf3bd.jpg";
+                jCtrl.newJob.address = "";
+                jCtrl.newJob.zip = "";
+                jCtrl.newJob.phone = "";
+                jCtrl.newJob.description = "";
 
 
-          }, function(err){
-            console.error(err);
 
-          });
-      }, 1000);
 
-      // PlaceFactory.predictions = [];
+            }, function(err){
+                console.error(err);
+
+            });
+        }, 1000);
+
+        // PlaceFactory.predictions = [];
     };
 
     jCtrl.greeting = 'Fill out this form please!';
@@ -110,8 +110,6 @@ function jobCtrl(jobFacto, PlaceFactory, $timeout, $http) {
             jCtrl.newJob = {};
 
             // Manually trigger the modal
-            $('#myModal').modal('toggle');
-
 
             var jobs = angular.copy(jCtrl.jobs); // copy our list of jobs
 
@@ -122,13 +120,12 @@ function jobCtrl(jobFacto, PlaceFactory, $timeout, $http) {
             });
 
             setTimeout(function(){
-              jCtrl.search = "";
-              jCtrl.newJob.name = "";
-              jCtrl.newJob.city = "";
-              jCtrl.newJob.state = "";
+                jCtrl.search = "";
+                jCtrl.newJob.name = "";
+                jCtrl.newJob.city = "";
+                jCtrl.newJob.state = "";
             }, 3500)
-        }
-        else{
+        } else {
             jCtrl.jobFormErrMessage = 'Fill out the form completely!';
             $timeout(function(){
                 jCtrl.jobFormErrMessage = '';
@@ -138,57 +135,64 @@ function jobCtrl(jobFacto, PlaceFactory, $timeout, $http) {
 
     }
     jCtrl.done = function(jobs){
-      var done = 0;
-      jobs.forEach(function(job){
-        if(job.complete === 100){
-          done++
-        };
+        var done = 0;
+        jobs.forEach(function(job){
+            if(job.complete === 100){
+                done++
+            };
 
-      });
-      return done;
+        });
+        return done;
     };
     jCtrl.active = function(jobs){
-      var active = 0;
-      jobs.forEach(function(job){
-        if(job.complete < 100){
-          active++
-        };
+        var active = 0;
+        jobs.forEach(function(job){
+            if(job.complete < 100){
+                active++
+            };
 
-      });
-      return active;
+        });
+        return active;
     }
 
     jCtrl.hideText = function(id, editToggle) {
-      console.log("running");
+        console.log("running");
 
-      jCtrl[editToggle] = true;
-      console.log(document.getElementById(id))
+        jCtrl[editToggle] = true;
+        console.log(document.getElementById(id))
 
-      setTimeout(function(){
-        document.getElementById(id).focus();
-      }, 1)
+        setTimeout(function(){
+            document.getElementById(id).focus();
+        }, 1)
     }
 
-   jCtrl.blurText = function(editToggle, field) {
-      console.log("Blurring!");
-      if(jCtrl.jobDetails[field]) {
-        jCtrl[editToggle] = false;
-      }
-   }
+    jCtrl.blurText = function(editToggle, field) {
+        console.log("Blurring!");
+        if(jCtrl.jobDetails[field]) {
+            jCtrl[editToggle] = false;
+        }
+    }
 
-   jCtrl.focusId= function(id){
-     setTimeout(function(){
-       document.getElementById(id).focus();
-     }, 500)
-   }
+    jCtrl.toggleModal = function(id, focusId) {
+        $('#'+ id).openModal();
+        if(focusId) {
+            jCtrl.focusId(focusId);
+        }
+    };
+
+    jCtrl.focusId = function(id){
+        setTimeout(function(){
+            document.getElementById(id).focus();
+        }, 500)
+    }
 }
 
 window.gen = function genterateHexString(length) {
-  var ret="";
-  while(ret.length < length){
-    ret += Math.random().toString(16).substring(2);
-  };
-  return ret.substring(0,length);
+    var ret="";
+    while(ret.length < length){
+        ret += Math.random().toString(16).substring(2);
+    };
+    return ret.substring(0,length);
 };
 
 

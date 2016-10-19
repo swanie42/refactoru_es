@@ -1,0 +1,87 @@
+
+<div class="topPadding">
+    <div class="row">
+
+        <div class="col s12 center">
+            <h1>Jobs</h1></div>
+            <div class="col s2"><h4>This div is 2-columns wide</h4></div>
+            <div class="col s8">
+                <!-- <button type="button" class="btn btn-primary right" data-target="#myModal"  ng-click="jCtrl.focusId('searchBar')">New Job -->
+                <button
+                class="waves-effect waves-light btn right"
+                ng-click="jCtrl.toggleModal('jobModal', 'searchBar')"
+                > New Job
+            </button>
+            <h3 class="center">This div is 8-columns wide</h3>
+        </div>
+        <div class="col s2"><h4>This div is 2-columns wide</h4></div>
+    </div>
+</div>
+
+<div>
+
+    <!-- Modal Trigger -->
+
+
+    <!-- Modal Structure -->
+    <div id="jobModal" class="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-content" role="document">
+            <form class="col s8" ng-submit="jCtrl.addJob(); jCtrl.autoPlace()">
+                <div class="row">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Add a Job!</h4>
+                        <div class="input-group">
+                            <input id="searchBar" class="searchBar input-field" ng-model="jCtrl.search" ng-keyup="jCtrl.autoPlace()" type="text" class="form-control" placeholder="Search Google">
+                            <div ng-hide="jCtrl.search===''" ng-repeat="pred in jCtrl.autoResults.predictions">{{pred.description}}</div>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <input class="input-field" ng-model="jCtrl.newJob.name" placeholder="Name">
+                        <input class="input-field" ng-model="jCtrl.newJob.city" placeholder="City">
+                        <input class="input-field" ng-model="jCtrl.newJob.state" placeholder="State">
+                    </div>
+                    <div class="modal-footer">
+                        <p class="warning-text">{{jCtrl.jobFormErrMessage}}</p>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary modal-action modal-close waves-effect waves-green btn-flat">Add this Job</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div>
+    <!-- Modal -->
+
+
+
+
+
+
+
+
+
+
+
+    <div class="card" ng-repeat="job in jCtrl.jobs">
+
+        <ul>
+            <!-- <li><img class="img-fluid" src="{{ job.img }}"></li> -->
+
+            <li><a href="/#/jobDetails"><img ng-click="jCtrl.setActiveJob($index); jCtrl.checkNewJob()" ng-src="{{ job.img }}"></a><h3>{{ job.name }}</h3></li>
+            <!-- <span class="row"> -->
+            <li><div>{{ job.city }}, {{ job.state }}</div></li>
+            <!-- </span> -->
+            <span class="row">
+                <li><div>Margin</div><h2 style="color:rgb(0,{{job.margin*2}},0)" id="margin">{{ job.margin }}%</h2></li>
+                <li><div>Complete</div><h2 style="color:rgb(0,{{job.complete*2}},0)" id="complete">{{ job.complete }}%</h2></li>
+            </span>
+        </ul>
+    </div>
+
+
+</div>

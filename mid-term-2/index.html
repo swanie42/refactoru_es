@@ -1,29 +1,66 @@
-<!DOCTYPE html>
-<html ng-app="gemStore">
-    <head>
-        <title>Flat-Landers</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css" type="text/css" />
-        <link rel="stylesheet" href="main.1.css" type="text/css" />
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <script src="https://opensource.keycdn.com/angularjs/1.5.8/angular.min.js"></script>
-        <script type="text/javascript" src="app.js"></script>
-    </head>
-    <body class="list-group" ng-controller="StoreController as store">
-   <!--  Product Container  -->
-   <div class="list-group-item" ng-repeat="product in store.products">
-     <h3>{{product.name}} <em class="pull-right">{{product.price | currency}}</em></h3>
+<!--launch on localhost:8080-->
 
-     <!-- Image Gallery  -->
-     <div class="gallery">
-       <div class="img-wrap">
-         <img ng-src="{{product.images[0]}}" />
-       </div>
-       <ul class="img-thumbnails clearfix">
-         <li class="small-image pull-left thumbnail" >
-           <img ng-src="{{product.images[0]}}" />
-         </li>
-       </ul>
-     </div>
-   </div>
- </body>
-</html>
+<!DOCTYPE html>
+<html ng-app="gbApp">
+    <head>
+
+        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css"> -->
+        <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-route.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+
+
+        <script src="module.js"></script>
+        <script src="jobFactory.js"></script>
+        <script src="zoneFactory.js"></script>
+        <script src="placeFactory.js"></script>
+        <script src="activity.factory.js"></script>
+        <script src="job.controller.js"></script>
+        <script src="zone.controller.js"></script>
+        <script src="activity.controller.js"></script>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+
+    </head>
+
+    <!--BODY GOES HERE-->
+    <body ng-controller = "JobController as jCtrl">
+      <!--Import jQuery before materialize.js-->
+
+      <div class="navbar-fixed">
+        <!-- Navigation -->
+           <nav>
+             <div class="nav-wrapper">
+               <a href="#" class="brand-logo center">GB APP</a>
+               <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                 <ul id="nav-mobile" class="left hide-on-med-and-down">
+                   <li><a href="/#/jobs">Jobs</a></li>
+                   <li><a href="/#/reports">Reports</a></li>
+                   <li><a href="/#/">Contracts</a></li>
+                 </ul>
+             </div>
+           </nav>
+           <!-- Page Content -->
+                   <div>
+                      <ng-view>
+                           <!--This is where our html templates will go-->
+                       </ng-view>
+                   </div>
+
+           </div>
+
+
+       </body>
+
+       </html>
