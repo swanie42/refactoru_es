@@ -12,17 +12,17 @@ angular.module('gbApp')//stating the module created on module.js
 
 // --------SETTING UP SERVICES---------
 
-jobCtrl.$inject = ["jobFacto", "$timeout", "$http"];//injecting the factory into the controller constructor
-//controller constructor.$inject property = ["factoryName"];
+ //injecting the factory into the controller constructor
+jobCtrl.$inject  = ["jobFacto", "PlaceFactory","$timeout", "$http"];
 
 
 
 
 //--------ADDING FUNCTIONALITY TO THE JOBCONTROLLER--------
-function jobCtrl(jobFacto, $timeout, $http){
-  $http.get("https://maps.googleapis.com/maps/api/place/autocomplete/json?input="+"boulder"+"&key=AIzaSyDUc_Yr0rbxPpJH9fF3cbj5Ao1VxQSAi4E").success(function(data){
-    console.log(data);
-  });
+function jobCtrl(jobFacto, PlaceFactory, $timeout, $http) {
+  // $http.get("https://maps.googleapis.com/maps/api/place/autocomplete/json?input="+"boulder"+"&key=AIzaSyDUc_Yr0rbxPpJH9fF3cbj5Ao1VxQSAi4E").success(function(data){
+  //   console.log(data);
+  // });
     var jCtrl = this;
 
     jCtrl.jobs = jobFacto.jobs;//defining relationship between the controller and factory
@@ -36,11 +36,38 @@ function jobCtrl(jobFacto, $timeout, $http){
 
     //window.jCtrl = jCtrl; // Attaching the ctrl object to the window is nice for debugging, but shouldn't stay in your production code
 
+    jCtrl.autoPlace = function(){
+      if(jCtrl.timePromise){
+          $timeout.cancel(jCtrl.timePromise)
+      }
+      jCtrl.timePromise = $timeout(function(){
+        PlaceFactory.searchPlace(jCtrl.search)
+          .then(function(res){
+            console.log(res.data);
+            jCtrl.autoResults = res.data;
+
+            jCtrl.newJob.name = res.data.predictions[0].terms[0].value;
+            jCtrl.newJob.street = res.data.predictions[0].terms[1].value;
+            jCtrl.newJob.city = res.data.predictions[0].terms[2].value;
+            jCtrl.newJob.state = res.data.predictions[0].terms[3].value;
+            jCtrl.newJob.margin = "0";
+            jCtrl.newJob.complete = "0";
+            jCtrl.newJob.img = "https://s-media-cache-ak0.pinimg.com/originals/bc/6f/27/bc6f2743296b0fdc75322f56ef5bf3bd.jpg";
+      
+          }, function(err){
+            console.error(err);
+
+          });
+      }, 1000);
+
+      // PlaceFactory.predictions = [];
+    };
+
     jCtrl.greeting = 'Fill out this form please!';
 
     jCtrl.addJob = function(){
 
-        if(jCtrl.newJob.img && jCtrl.newJob.name && jCtrl.newJob.city && jCtrl.newJob.state && jCtrl.newJob.complete && jCtrl.newJob.margin){
+        if(jCtrl.newJob.name && jCtrl.newJob.city && jCtrl.newJob.state){
 
             jCtrl.jobs.unshift( jCtrl.newJob );
 

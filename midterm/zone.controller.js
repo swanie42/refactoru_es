@@ -42,7 +42,7 @@ function zoneCtrl(zoneFacto, $timeout){
             zCtrl.newZone = {};
 
             // Manually trigger the modal
-            $('#myModal').modal('toggle');
+            $('#newZoneForm').modal('toggle');
 
 
             var zones = angular.copy(zCtrl.zones); // copy our list of zones

@@ -12,36 +12,50 @@
 
 
       </figcaption>
-            <div class="figsubcaption"> <h2>{{ jCtrl.jobDetails.city }}, {{jCtrl.jobDetails.state}}</h2></div>
+            <div class="figsubcaption"><h2>{{ jCtrl.jobDetails.city }}, {{jCtrl.jobDetails.state}}</h2></div>
     </figure>
 
   </div>
-  <div class="jobsHeader">
-    <button type="button" class="btn btn-primary btn-lg jobsTopRightButton" data-toggle="modal" data-target="#myModal" style="margin-right:30px;">
-     Edit Details
-    </button>
-    <h1>Job Details</h1>
-  </div>
 
-  <!--sidenav-->
+
+
   <div class="container-fluid">
     <div class="row content">
+      <!--sidenav-->
       <div class="col-sm-3 sidenav" ng-controller="activityController as aCtrl">
-        <h4>New Activity</h4>
 
-        <select ng-options="component as component.label for component in aCtrl.activity.components" ng-model ="aCtrl.selected.component"><option value="" disabled selected>Component</option>
+        <h4 ng-hide="aCtrl.selected.method">New Activity</h4>
+        <h3 ng-show="aCtrl.selected.method">{{ aCtrl.selected.action.label }} {{ aCtrl.selected.material.label | lowercase }} {{ aCtrl.selected.component.label | lowercase }} with {{ aCtrl.selected.method.label | lowercase }}</h3>
+
+        <select ng-options="component as component.label for component in aCtrl.activity.components"
+                ng-model ="aCtrl.selected.component">
+                <option value="" disabled selected>Component</option>
         </select>
 
-        <select ng-show="aCtrl.selected.component" ng-options="material as material.label for material in aCtrl.activity.materials | inArray:aCtrl.selected.component.show:'label'" ng-model="aCtrl.selected.material"><option value="" disabled selected>Material</option>
+        <select ng-show="aCtrl.selected.component"
+                ng-options="material as material.label for material in aCtrl.activity.materials | inArray:aCtrl.selected.component.show:'label'"
+                ng-model="aCtrl.selected.material">
+                <option value="" disabled selected>Material</option>
         </select>
 
-        <select ng-show="aCtrl.selected.material" ng-options="action as action.label for action in aCtrl.activity.actions | inArray:aCtrl.selected.material.show:'label'" ng-model ="aCtrl.selected.action"><option value="" disabled selected>Action</option>
+        <select ng-show="aCtrl.selected.material"
+                ng-options="action as action.label for action in aCtrl.activity.actions | inArray:aCtrl.selected.material.show:'label'"
+                ng-model ="aCtrl.selected.action">
+                <option value="" disabled selected>Action</option>
         </select>
 
-        <select ng-show="aCtrl.selected.action"  ng-options="method as method.label for method in aCtrl.activity.methods | inArray:aCtrl.selected.action.show:'label'" ng-model ="aCtrl.selected.method"><option value="" disabled selected>Method</option>
+        <select ng-show="aCtrl.selected.action"
+                ng-options="method as method.label for method in aCtrl.activity.methods | inArray:aCtrl.selected.action.show:'label'"
+                ng-model ="aCtrl.selected.method">
+                <option value="" disabled selected>Method</option>
         </select>
 
-        <h5>{{ aCtrl.selected.action.label }} {{ aCtrl.selected.material.label }} {{ aCtrl.selected.component.label }} {{ aCtrl.selected.method.label }}</h5>
+
+
+        <div class="form-group" ng-show="aCtrl.selected.method">
+          <label for="usr">Special Instructions</label>
+          <input type="text" class="form-control" id="usr">
+        </div>
 
         <ul class="nav nav-pills nav-stacked">
           <li class="active"><a href="#section1">Home</a></li>
@@ -58,6 +72,13 @@
           </span>
         </div>
       </div>
+      <!--jobsHeader-->
+      <div class="jobsHeader">
+        <button type="button" class="btn btn-primary btn-lg jobsTopRightButton" data-toggle="modal" data-target="#myModal" style="margin-right:30px;">
+         Edit Details
+        </button>
+        <h1>Job Details</h1>
+      </div>
 
    <!-- Modal -->
    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -66,7 +87,7 @@
                <form>
                    <div class="modal-header">
                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                       <h4 class="modal-title" id="myModalLabel">Add a Job!</h4>
+                       <h4 class="modal-title" id="myModalLabel">Edit Job</h4>
                    </div>
                    <div class="modal-body">
 
@@ -83,9 +104,6 @@
                        <input class="form-control" ng-model="jCtrl.jobDetails.localSPInvolvement" placeholder="Local Servpro Franchise Involvement">
                        <input class="form-control" ng-model="jCtrl.jobDetails.phoneNumber" placeholder="Phone Number">
 
-
-
-
                    </div>
                    <div class="modal-footer">
                        <p class="warning-text">{{jCtrl.jobFormErrMessage}}</p>
@@ -96,8 +114,8 @@
            </div>
        </div>
    </div>
+<!--job details -->
   <ul>
-    <!--job details -->
     <h2>Job Name:{{ jCtrl.jobDetails.name }}</h2>
     <h3>{{ jCtrl.jobDetails.city }}, {{jCtrl.jobDetails.state}}</h3>
     <h3>{{ jCtrl.jobDetails.city }}, {{jCtrl.jobDetails.state}}</h3>
