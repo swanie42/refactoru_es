@@ -8,7 +8,9 @@ angular.module('gbApp')
         components:[
           {label : "Wall", show:["Brick", "Drywall", "Block", "Tile"]},
           {label : "Floor", show:["Hardwood", "Carpet", "Concrete", "Tile"]},
-          {label : "Ceiling", show:["Tile", "Paneling", "Concrete"]}
+          {label : "Ceiling", show:["Tile", "Paneling", "Concrete"]},
+          {label : "Door", show:["Metal", "Wood"]}
+
         ],
         materials:[
           {label : "Brick", show:["Clean", "Demo"]},
@@ -16,7 +18,10 @@ angular.module('gbApp')
           {label : "Drywall", show:["Clean", "Cut-out", "Remove"]},
           {label : "Block", show:["Clean", "Demo"]},
           {label : "Carpet", show:["Clean", "Remove"]},
-          {label : "Concrete", show:["Clean", "Demo"]}
+          {label : "Concrete", show:["Clean", "Demo"]},
+          {label : "Metal", show:["Clean", "Demo"]},
+          {label : "Wood", show:["Clean", "Demo"]}
+
         ],
         actions:[
           {label : "Clean", show:["Bleach", "Water", "Shop-vac", "HEPA vac"]},
